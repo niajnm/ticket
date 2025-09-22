@@ -1,0 +1,22 @@
+[
+  {
+    "id": "132198423",
+    "subject": "Search view, which can display dynamic suggestions, is the focused state of...",
+    "status": "Open",
+    "priority": "Low",
+    "customerName": "Michale",
+    "date": "2023-12-23 15:43",
+    "brand": "Gains",
+    "tags": ["Tag one", "Tag five"]
+  },
+  {
+    "id": "132198424",
+    "subject": "Ticket subject small",
+    "status": "Spam",
+    "priority": "Urgent",
+    "customerName": "Noah",
+    "date": "2023-12-23 15:43",
+    "brand": "GainSolution",
+    "tags": ["Tag two", "Tag three wit long text"]
+  }
+]
