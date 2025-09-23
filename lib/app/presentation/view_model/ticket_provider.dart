@@ -1,9 +1,11 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket/app/core/data/repository/tickets_repo/tickets_repository_source.dart';
+import 'package:ticket/app/core/services/service_locator.dart';
 import 'package:ticket/app/model/ticket.dart';
 
 class TicketProvider with ChangeNotifier {
+  final TicketsRepositorySource _ticketSource =
+      serviceLocator<TicketsRepositorySource>();
   List<Ticket> _tickets = [];
   List<Ticket> _filteredTickets = [];
   bool _isLoading = false;
@@ -20,9 +22,13 @@ class TicketProvider with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    final String response = await rootBundle.loadString('assets/tickets.json');
-    final List data = json.decode(response);
-    _tickets = data.map((e) => Ticket.fromJson(e)).toList();
+    // final String response = await rootBundle.loadString('assets/tickets.json');
+    // final List data = json.decode(response);
+
+    final data = await _ticketSource.fetchTicketsGet(0);
+    _tickets = data;
+
+    // = data.map((e) => Ticket.fromJson(e)).toList();
     _filteredTickets = List.from(_tickets);
 
     _isLoading = false;

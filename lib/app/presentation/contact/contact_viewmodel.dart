@@ -1,9 +1,13 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:ticket/app/core/data/repository/contacts_repo/contacts_repository_source.dart';
+import 'package:ticket/app/core/services/service_locator.dart';
 import 'dart:convert';
 import 'package:ticket/app/model/contact.dart';
 
 class ContactViewModel extends ChangeNotifier {
+  final ContactsRepositorySource _contactSource =
+      serviceLocator<ContactsRepositorySource>();
   List<Contact> _allContacts = [];
   List<Contact> _filteredContacts = [];
   String _searchQuery = '';
@@ -22,11 +26,13 @@ class ContactViewModel extends ChangeNotifier {
     notifyListeners();
 
     try {
-      final String response = await DefaultAssetBundle.of(
-        context,
-      ).loadString('assets/contacts.json');
-      final List<dynamic> data = json.decode(response);
-      _allContacts = data.map((json) => Contact.fromJson(json)).toList();
+      // final String response = await DefaultAssetBundle.of(
+      //   context,
+      // ).loadString('assets/contacts.json');
+      // final List<dynamic> data = json.decode(response);
+
+      final data = await _contactSource.fetchContactsGet(0);
+      _allContacts = data;
       _filteredContacts = _allContacts;
       _isDataLoaded = true;
       log('Loaded ${_allContacts.length} contacts');
