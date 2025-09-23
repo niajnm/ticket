@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ticket/app/core/utils/app_utils.dart';
 import 'package:ticket/app/model/ticket.dart';
 
 class TicketCard extends StatelessWidget {
   final Ticket ticket;
   final VoidCallback? onTap;
 
-  const TicketCard({Key? key, required this.ticket, this.onTap})
-    : super(key: key);
+  const TicketCard({super.key, required this.ticket, this.onTap});
 
   Color _priorityColor(String priority) {
     switch (priority.toLowerCase()) {
@@ -26,60 +26,15 @@ class TicketCard extends StatelessWidget {
   Color _tagColor(String tag) {
     final lower = tag.toLowerCase();
     if (lower.contains('overdue')) return Colors.orange;
-    if (lower.contains('responded') || lower.contains('customer'))
+    if (lower.contains('responded') || lower.contains('customer')) {
       return Colors.purple;
+    }
     if (lower.contains('new')) return Colors.lightBlue;
     if (lower.contains('critical')) return Colors.red;
     if (lower.contains('security')) return Colors.deepPurple;
     if (lower.contains('performance')) return Colors.indigo;
     if (lower.contains('payment')) return Colors.teal;
     return Colors.blueGrey;
-  }
-
-  String _formatDate(dynamic dateInput) {
-    DateTime dt;
-
-    if (dateInput is DateTime) {
-      dt = dateInput;
-    } else if (dateInput is String) {
-      try {
-        // Handle format like "2023-12-23 15:43"
-        if (dateInput.contains(' ') && !dateInput.contains('T')) {
-          dt = DateTime.parse(dateInput.replaceAll(' ', 'T'));
-        } else {
-          dt = DateTime.parse(dateInput);
-        }
-      } catch (e) {
-        // Fallback to current time if parsing fails
-        dt = DateTime.now();
-      }
-    } else {
-      dt = DateTime.now();
-    }
-
-    final month = _monthName(dt.month);
-    final hour12 = dt.hour == 0 ? 12 : (dt.hour > 12 ? dt.hour - 12 : dt.hour);
-    final minute = dt.minute.toString().padLeft(2, '0');
-    final ampm = dt.hour >= 12 ? 'pm' : 'am';
-    return '${dt.day} $month ${dt.year} ${hour12.toString().padLeft(2, '0')}:$minute $ampm';
-  }
-
-  String _monthName(int m) {
-    const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-    return months[m - 1];
   }
 
   Widget _chip(String text, {Color? bg, Color? fg, BorderSide? border}) {
@@ -237,7 +192,7 @@ class TicketCard extends StatelessWidget {
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  _formatDate(ticket.date),
+                  AppUtils.formatDate(ticket.date),
                   style: TextStyle(color: Colors.grey[600], fontSize: 12),
                 ),
               ],
