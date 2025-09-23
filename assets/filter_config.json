@@ -1,0 +1,39 @@
+{
+  "filters": [
+    {
+      "id": "niaj",
+      "label": "Brand",
+      "type": "checkbox",
+      "multiple": false,
+      "options": []
+    },
+    {
+      "id": "priority",
+      "label": "Priority",
+      "type": "dropdown",
+      "multiple": false,
+      "options": []
+    },
+    {
+      "id": "tags",
+      "label": "Tags",
+      "type": "chip",
+      "multiple": true,
+      "options": []
+    },
+    {
+      "id": "category",
+      "label": "Category",
+      "type": "dropdown",
+      "multiple": false,
+      "options": []
+    },
+    {
+      "id": "status",
+      "label": "Status",
+      "type": "checkbox",
+      "multiple": false,
+      "options": []
+    }
+  ]
+}

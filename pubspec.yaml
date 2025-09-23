@@ -63,7 +63,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/tickets.json
+    - assets/tickets.json 
+    - assets/filter_config.json
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

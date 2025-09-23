@@ -18,5 +18,65 @@
     "date": "2023-12-23 15:43",
     "brand": "GainSolution",
     "tags": ["Tag two", "Tag three wit long text"]
+  },
+  {
+    "id": "132198425",
+    "subject": "Unable to reset password after multiple attempts",
+    "status": "Closed",
+    "priority": "Medium",
+    "customerName": "Sophia",
+    "date": "2024-01-05 10:12",
+    "brand": "TechCorp",
+    "tags": ["Password", "Security", "Account"]
+  },
+  {
+    "id": "132198426",
+    "subject": "App crashes when uploading large files",
+    "status": "Open",
+    "priority": "High",
+    "customerName": "Liam",
+    "date": "2024-02-14 08:25",
+    "brand": "Cloudify",
+    "tags": ["Crash", "Upload", "Bug"]
+  },
+  {
+    "id": "132198427",
+    "subject": "Feature request: Add dark mode support",
+    "status": "Pending",
+    "priority": "Low",
+    "customerName": "Olivia",
+    "date": "2024-03-01 19:50",
+    "brand": "BrightSoft",
+    "tags": ["Feature", "UI/UX"]
+  },
+  {
+    "id": "132198428",
+    "subject": "Payment gateway timeout during checkout",
+    "status": "In Progress",
+    "priority": "Urgent",
+    "customerName": "Ethan",
+    "date": "2024-04-20 12:33",
+    "brand": "ShopEasy",
+    "tags": ["Payment", "Gateway", "Critical"]
+  },
+  {
+    "id": "132198429",
+    "subject": "Email notifications not received for updates",
+    "status": "Reopened",
+    "priority": "Medium",
+    "customerName": "Ava",
+    "date": "2024-05-02 16:40",
+    "brand": "NotifyMe",
+    "tags": ["Email", "Notification"]
+  },
+  {
+    "id": "132198430",
+    "subject": "System performance degraded after latest update",
+    "status": "Open",
+    "priority": "High",
+    "customerName": "Mason",
+    "date": "2024-06-11 09:18",
+    "brand": "SysPro",
+    "tags": ["Performance", "Update", "Lag"]
   }
 ]

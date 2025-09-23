@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ticket/app/presentation/component/ticket_card.dart';
-import 'package:ticket/app/presentation/view_model/quiz_provider.dart';
+import 'package:ticket/app/presentation/view_model/ticket_provider.dart';
 import 'filter_page.dart';
 
-class TicketsPage extends StatelessWidget {
+class TicketsPage extends StatefulWidget {
   const TicketsPage({super.key});
+
+  @override
+  State<TicketsPage> createState() => _TicketsPageState();
+}
+
+class _TicketsPageState extends State<TicketsPage> {
+  @override
+  void initState() {
+    super.initState();
+    // Load tickets once when the page is first opened
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<TicketProvider>().loadTickets();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +34,7 @@ class TicketsPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (_) => const FilterPage()),
               );
+              // Apply filters after returning from filter page
               context.read<TicketProvider>().applyFilters();
             },
           ),
@@ -27,9 +42,14 @@ class TicketsPage extends StatelessWidget {
       ),
       body: Consumer<TicketProvider>(
         builder: (context, provider, _) {
+          if (provider.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
           if (provider.tickets.isEmpty) {
             return const Center(child: Text("No tickets found"));
           }
+
           return ListView.builder(
             itemCount: provider.tickets.length,
             itemBuilder: (context, index) {
