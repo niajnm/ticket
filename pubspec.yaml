@@ -65,6 +65,7 @@ flutter:
   assets:
     - assets/tickets.json 
     - assets/filter_config.json
+    - assets/contacts.json
 
 
   # To add assets to your application, add an assets section, like this:

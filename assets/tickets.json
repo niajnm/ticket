@@ -26,8 +26,8 @@
     "priority": "Medium",
     "customerName": "Sophia",
     "date": "2024-01-05 10:12",
-    "brand": "TechCorp",
-    "tags": ["Password", "Security", "Account"]
+    "brand": "GainHQ",
+    "tags": ["Tag four"]
   },
   {
     "id": "132198426",
@@ -36,8 +36,8 @@
     "priority": "High",
     "customerName": "Liam",
     "date": "2024-02-14 08:25",
-    "brand": "Cloudify",
-    "tags": ["Crash", "Upload", "Bug"]
+    "brand": "Gains",
+    "tags": ["Tag six with long text"]
   },
   {
     "id": "132198427",
@@ -46,8 +46,8 @@
     "priority": "Low",
     "customerName": "Olivia",
     "date": "2024-03-01 19:50",
-    "brand": "BrightSoft",
-    "tags": ["Feature", "UI/UX"]
+    "brand": "GainSolution",
+    "tags": ["Tag seven"]
   },
   {
     "id": "132198428",
@@ -56,8 +56,8 @@
     "priority": "Urgent",
     "customerName": "Ethan",
     "date": "2024-04-20 12:33",
-    "brand": "ShopEasy",
-    "tags": ["Payment", "Gateway", "Critical"]
+    "brand": "GainHQ",
+    "tags": ["Tag one", "Tag four"]
   },
   {
     "id": "132198429",
@@ -66,8 +66,8 @@
     "priority": "Medium",
     "customerName": "Ava",
     "date": "2024-05-02 16:40",
-    "brand": "NotifyMe",
-    "tags": ["Email", "Notification"]
+    "brand": "Gains",
+    "tags": ["Tag two", "Tag five"]
   },
   {
     "id": "132198430",
@@ -76,7 +76,7 @@
     "priority": "High",
     "customerName": "Mason",
     "date": "2024-06-11 09:18",
-    "brand": "SysPro",
-    "tags": ["Performance", "Update", "Lag"]
+    "brand": "GainSolution",
+    "tags": ["Tag three wit long text", "Tag six with long text"]
   }
 ]

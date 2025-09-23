@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ticket/app/presentation/contact/contact_page.dart';
+import 'package:ticket/app/presentation/contact/profile.dart';
 import 'package:ticket/app/presentation/view/ticket_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,8 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _pages = [
     const TicketsPage(),
-    const Center(child: Text("Contacts Page")), // TODO
-    const Center(child: Text("Profile Page")), // TODO
+    ContactPage(),
+    ProfileScreen(), // TODO
   ];
 
   @override

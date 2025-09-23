@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ticket/app/presentation/component/ticket_card.dart';
@@ -42,6 +44,9 @@ class _TicketsPageState extends State<TicketsPage> {
       ),
       body: Consumer<TicketProvider>(
         builder: (context, provider, _) {
+          log(
+            ' isLoading: ${provider.isLoading}, tickets count: ${provider.tickets.length}',
+          );
           if (provider.isLoading) {
             return const Center(child: CircularProgressIndicator());
           }

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Michale Kahnwald",
+    "email": "michel@email.com",
+    "phone": "+12 34 56 78 90",
+    "address": "12A, Lillistrom, Norway",
+    "imageUrl": "https://via.placeholder.com/40"
+  },
+  {
+    "name": "Noah",
+    "email": "michel@email.com",
+    "phone": "+12 34 56 78 90",
+    "address": "12A, Lillistrom, Norway",
+    "imageUrl": "https://via.placeholder.com/40"
+  },
+  {
+    "name": "Jonus Kajhnwald",
+    "email": "michel@email.com",
+    "phone": "+12 34 56 78 90",
+    "address": "12A, Lillistrom, Norway",
+    "imageUrl": "https://via.placeholder.com/40"
+  }
+]

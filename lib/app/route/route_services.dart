@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticket/app/presentation/contact/contact_page.dart';
 import 'package:ticket/app/presentation/view/home_screen.dart';
 
 import 'package:ticket/app/route/route_paths.dart';
@@ -18,11 +19,11 @@ class RouteServices {
       //     settings: settings,
       //   );
 
-      // case RoutePaths.result:
-      //   return MaterialPageRoute(
-      //     builder: (_) => ResultScreen(),
-      //     settings: settings,
-      //   );
+      case RoutePaths.contact:
+        return MaterialPageRoute(
+          builder: (_) => ContactPage(),
+          settings: settings,
+        );
 
       // case RoutePaths.leaderboard:
       //   return MaterialPageRoute(

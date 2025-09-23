@@ -1,4 +1,5 @@
 import 'package:provider/provider.dart';
+import 'package:ticket/app/presentation/contact/contact_viewmodel.dart';
 import 'package:ticket/app/presentation/view_model/ticket_provider.dart';
 
 class ProviderPath {
@@ -11,6 +12,10 @@ class ProviderPath {
     // ),
     ChangeNotifierProvider(
       create: (_) => TicketProvider(), // no load here
+      lazy: true,
+    ),
+    ChangeNotifierProvider(
+      create: (_) => ContactViewModel(), // no load here
       lazy: true,
     ),
 
