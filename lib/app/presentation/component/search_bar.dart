@@ -15,7 +15,7 @@ class ModernSearchBar extends StatelessWidget {
   final TextStyle? hintStyle;
 
   const ModernSearchBar({
-    Key? key,
+    super.key,
     required this.controller,
     required this.onChanged,
     this.onClear,
@@ -28,11 +28,12 @@ class ModernSearchBar extends StatelessWidget {
     this.borderRadius = 25.0,
     this.textStyle,
     this.hintStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    final defaultBackgroundColor = backgroundColor ?? Colors.grey[50];
+    final defaultBackgroundColor =
+        backgroundColor ?? const Color.fromARGB(134, 188, 186, 186);
     final defaultIconColor = iconColor ?? Colors.grey[500];
     final defaultHintTextColor = hintTextColor ?? Colors.grey[500];
 
@@ -92,8 +93,7 @@ class ModernSearchBar extends StatelessWidget {
             minHeight: 22,
           ),
         ),
-        style:
-            textStyle ?? const TextStyle(fontSize: 16, color: Colors.black87),
+        style: textStyle ?? const TextStyle(fontSize: 16),
       ),
     );
   }
@@ -114,7 +114,7 @@ class ModernSearchBarStateful extends StatefulWidget {
   final TextStyle? hintStyle;
 
   const ModernSearchBarStateful({
-    Key? key,
+    super.key,
     required this.onChanged,
     this.onClear,
     this.hintText = 'Search',
@@ -126,7 +126,7 @@ class ModernSearchBarStateful extends StatefulWidget {
     this.borderRadius = 25.0,
     this.textStyle,
     this.hintStyle,
-  }) : super(key: key);
+  });
 
   @override
   State<ModernSearchBarStateful> createState() =>
@@ -150,7 +150,8 @@ class _ModernSearchBarStatefulState extends State<ModernSearchBarStateful> {
 
   @override
   Widget build(BuildContext context) {
-    final defaultBackgroundColor = widget.backgroundColor ?? Colors.grey[50];
+    final defaultBackgroundColor =
+        widget.backgroundColor ?? const Color.fromARGB(69, 250, 250, 250);
     final defaultIconColor = widget.iconColor ?? Colors.grey[500];
     final defaultHintTextColor = widget.hintTextColor ?? Colors.grey[500];
 
@@ -214,9 +215,7 @@ class _ModernSearchBarStatefulState extends State<ModernSearchBarStateful> {
             minHeight: 22,
           ),
         ),
-        style:
-            widget.textStyle ??
-            const TextStyle(fontSize: 16, color: Colors.black87),
+        style: widget.textStyle ?? const TextStyle(fontSize: 16),
       ),
     );
   }

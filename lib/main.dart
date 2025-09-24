@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ticket/app/core/provider/provider.dart';
+import 'package:ticket/app/core/provider/provider_path.dart';
 import 'package:ticket/app/core/services/service_locator.dart';
 import 'package:ticket/app/route/route_services.dart';
 import 'package:ticket/flavors/build_config.dart';

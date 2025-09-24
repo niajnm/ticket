@@ -27,13 +27,11 @@ class RoleCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
+                style: const TextStyle(fontSize: 16),
                 overflow: TextOverflow.ellipsis,
               ),
+              const SizedBox(height: 4),
+              Divider(height: 2),
               const SizedBox(height: 4),
               Text(
                 'Group',
@@ -41,24 +39,21 @@ class RoleCard extends StatelessWidget {
               ),
               Text(
                 subtitle,
-                style: const TextStyle(fontSize: 14, color: Colors.black87),
+                style: const TextStyle(fontSize: 14),
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 8),
               Row(
                 children: [
                   CircleAvatar(
-                    radius: 12,
+                    radius: 20,
                     backgroundImage: NetworkImage(avatarUrl),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       name,
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: Colors.black87,
-                      ),
+                      style: const TextStyle(fontSize: 12),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -67,34 +62,6 @@ class RoleCard extends StatelessWidget {
             ],
           ),
         ),
-        if (!isPartial) ...[
-          const SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                'Agent',
-                style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'Group',
-                style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-              ),
-              Text(
-                'Laravel support',
-                style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Manager',
-                style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-              ),
-            ],
-          ),
-        ],
       ],
     );
   }

@@ -3,6 +3,8 @@ import 'package:ticket/app/core/data/local/contacts_local/contacts_local_source.
 import 'package:ticket/app/core/data/local/contacts_local/contacts_local_source_impl.dart';
 import 'package:ticket/app/core/data/local/tickets_local/tickets_local_source.dart';
 import 'package:ticket/app/core/data/local/tickets_local/tickets_local_source_impl.dart';
+import 'package:ticket/app/core/data/remote/fetch/remote_source.dart';
+import 'package:ticket/app/core/data/remote/fetch/remote_source_impl.dart';
 import 'package:ticket/app/core/data/repository/contacts_repo/contacts_repository_source.dart';
 import 'package:ticket/app/core/data/repository/contacts_repo/contacts_repository_source_impl.dart';
 import 'package:ticket/app/core/data/repository/tickets_repo/tickets_repository_source.dart';
@@ -31,8 +33,8 @@ class ServiceLocator {
       () => ContactsRepositorySourceImpl(),
     );
 
-    // serviceLocator.registerLazySingleton<RemoteSource>(
-    //   () => RemoteSourceImpl(),
-    // );
+    serviceLocator.registerLazySingleton<RemoteSource>(
+      () => RemoteSourceImpl(),
+    );
   }
 }

@@ -14,7 +14,7 @@ Exception handleError(String error) {
   return AppException(message: error);
 }
 
-Exception handleDioError(DioError dioError) {
+Exception handleDioError(DioException dioError) {
   switch (dioError.type) {
     case DioExceptionType.cancel:
       return AppException(message: "Request to API server was cancelled 🙂");
@@ -24,7 +24,8 @@ Exception handleDioError(DioError dioError) {
       return NetworkException("There is no internet connection 🙂");
     case DioExceptionType.receiveTimeout:
       return TimeoutException(
-          "Receive timeout in connection with API server 🙂");
+        "Receive timeout in connection with API server 🙂",
+      );
     case DioExceptionType.sendTimeout:
       return TimeoutException("Send timeout in connection with API server 🙂");
     case DioExceptionType.badResponse:
@@ -34,7 +35,6 @@ Exception handleDioError(DioError dioError) {
     case DioExceptionType.connectionError:
       return NetworkException("There is no internet connection");
   }
-
 }
 
 Exception _parseDioErrorResponse(DioError dioError) {
@@ -64,8 +64,9 @@ Exception _parseDioErrorResponse(DioError dioError) {
       return NotFoundException(serverMessage ?? "", status ?? "");
     default:
       return ApiException(
-          httpCode: statusCode,
-          status: status ?? "",
-          message: serverMessage ?? "");
+        httpCode: statusCode,
+        status: status ?? "",
+        message: serverMessage ?? "",
+      );
   }
 }

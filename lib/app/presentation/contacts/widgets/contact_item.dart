@@ -16,6 +16,7 @@ class ContactItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0,
       margin: const EdgeInsets.symmetric(vertical: 6),
       child: InkWell(
         onTap: onTap,

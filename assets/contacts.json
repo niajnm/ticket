@@ -8,16 +8,65 @@
   },
   {
     "name": "Noah",
-    "email": "michel@email.com",
-    "phone": "+12 34 56 78 90",
-    "address": "12A, Lillistrom, Norway",
-    "imageUrl": "https://picsum.photos/2"
+    "email": "noah@email.com",
+    "phone": "+12 34 56 78 91",
+    "address": "23B, Oslo, Norway",
+    "imageUrl": "https://picsum.photos/21"
   },
   {
     "name": "Jonus Kajhnwald",
-    "email": "michel@email.com",
-    "phone": "+12 34 56 78 90",
-    "address": "12A, Lillistrom, Norway",
-    "imageUrl": "https://picsum.photos/200"
+    "email": "jonus@email.com",
+    "phone": "+12 34 56 78 92",
+    "address": "34C, Bergen, Norway",
+    "imageUrl": "https://picsum.photos/22"
+  },
+  {
+    "name": "Sophia Loren",
+    "email": "sophia@email.com",
+    "phone": "+12 34 56 78 93",
+    "address": "45D, Trondheim, Norway",
+    "imageUrl": "https://picsum.photos/23"
+  },
+  {
+    "name": "Liam Neeson",
+    "email": "liam@email.com",
+    "phone": "+12 34 56 78 94",
+    "address": "56E, Stavanger, Norway",
+    "imageUrl": "https://picsum.photos/24"
+  },
+  {
+    "name": "Olivia Wilde",
+    "email": "olivia@email.com",
+    "phone": "+12 34 56 78 95",
+    "address": "67F, Tromso, Norway",
+    "imageUrl": "https://picsum.photos/25"
+  },
+  {
+    "name": "Ethan Hunt",
+    "email": "ethan@email.com",
+    "phone": "+12 34 56 78 96",
+    "address": "78G, Kristiansand, Norway",
+    "imageUrl": "https://picsum.photos/26"
+  },
+  {
+    "name": "Ava Gardner",
+    "email": "ava@email.com",
+    "phone": "+12 34 56 78 97",
+    "address": "89H, Bodø, Norway",
+    "imageUrl": "https://picsum.photos/27"
+  },
+  {
+    "name": "Mason Verger",
+    "email": "mason@email.com",
+    "phone": "+12 34 56 78 98",
+    "address": "90I, Lillehammer, Norway",
+    "imageUrl": "https://picsum.photos/28"
+  },
+  {
+    "name": "Emma Stone",
+    "email": "emma@email.com",
+    "phone": "+12 34 56 78 99",
+    "address": "101J, Drammen, Norway",
+    "imageUrl": "https://picsum.photos/29"
   }
 ]

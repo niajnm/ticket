@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticket/app/presentation/contact/view/contact_page.dart';
-import 'package:ticket/app/presentation/view/home_screen.dart';
+import 'package:ticket/app/presentation/contacts/page/contact_page.dart';
+import 'package:ticket/app/presentation/home_bottom/home_screen.dart';
 
 import 'package:ticket/app/route/route_paths.dart';
 

@@ -3,7 +3,7 @@ import 'package:ticket/app/core/data/repository/tickets_repo/tickets_repository_
 import 'package:ticket/app/core/services/service_locator.dart';
 import 'package:ticket/app/model/ticket.dart';
 
-class TicketProvider with ChangeNotifier {
+class TicketViewModel with ChangeNotifier {
   final TicketsRepositorySource _ticketSource =
       serviceLocator<TicketsRepositorySource>();
 
@@ -68,6 +68,28 @@ class TicketProvider with ChangeNotifier {
     selectedPriority = null;
     selectedTags.clear();
     _filteredTickets = List.from(_tickets);
+    notifyListeners();
+  }
+
+  /// Toggle selected brand
+  void toggleBrand(String brand) {
+    selectedBrand = selectedBrand == brand ? null : brand;
+    notifyListeners();
+  }
+
+  /// Set selected priority
+  void setPriority(String? priority) {
+    selectedPriority = priority;
+    notifyListeners();
+  }
+
+  /// Toggle a tag in selectedTags
+  void toggleTag(String tag) {
+    if (selectedTags.contains(tag)) {
+      selectedTags.remove(tag);
+    } else {
+      selectedTags.add(tag);
+    }
     notifyListeners();
   }
 }

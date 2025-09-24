@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket/app/model/profile_model.dart';
 
-class ProfileProvider with ChangeNotifier {
+class ProfileViewModel with ChangeNotifier {
   Profile? _profile;
   bool _isLoading = false;
   String? _error;

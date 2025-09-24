@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ticket/app/presentation/component/contact_item.dart';
+import 'package:ticket/app/presentation/component/app_bar.dart';
+import 'package:ticket/app/presentation/contacts/widgets/contact_item.dart';
 import 'package:ticket/app/presentation/component/search_bar.dart';
-import 'package:ticket/app/presentation/contact/contact_viewmodel.dart';
+import 'package:ticket/app/presentation/contacts/view_model/contact_viewmodel.dart';
 import 'contact_profile_page.dart';
 
 class ContactPage extends StatefulWidget {
-  const ContactPage({Key? key}) : super(key: key);
+  const ContactPage({super.key});
 
   @override
   State<ContactPage> createState() => _ContactPageState();
@@ -41,7 +42,6 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Consumer<ContactViewModel>(
       builder: (context, viewModel, child) {
-        // Show loading when data is not loaded yet
         if (!viewModel.isDataLoaded && viewModel.isLoading) {
           return Scaffold(
             appBar: _buildAppBar(),
@@ -54,16 +54,7 @@ class _ContactPageState extends State<ContactPage> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Search Bar
-              ModernSearchBar(
-                controller: _searchController,
-                hintText: 'Search contacts',
-                onChanged: (query) => viewModel.searchContacts(query),
-                onClear: () {
-                  _searchController.clear();
-                  viewModel.clearSearch();
-                },
-              ),
+              _searchBar(viewModel),
 
               // Contacts Header
               Padding(
@@ -103,17 +94,18 @@ class _ContactPageState extends State<ContactPage> {
   }
 
   PreferredSizeWidget _buildAppBar() {
-    return AppBar(
-      title: const Text('Gain Solutions'),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Badge(
-            label: const Text('3'),
-            child: const Icon(Icons.notifications),
-          ),
-        ),
-      ],
+    return CustomAppBar(title: "Gain Solutions", notificationCount: 3);
+  }
+
+  Widget _searchBar(ContactViewModel viewModel) {
+    return ModernSearchBar(
+      controller: _searchController,
+      hintText: 'Search contacts',
+      onChanged: (query) => viewModel.searchContacts(query),
+      onClear: () {
+        _searchController.clear();
+        viewModel.clearSearch();
+      },
     );
   }
 
