@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ticket/app/presentation/contact/contact_page.dart';
-import 'package:ticket/app/presentation/contact/profile.dart';
+import 'package:ticket/app/presentation/contact/view/contact_page.dart';
+import 'package:ticket/app/presentation/profile/view/profile.dart';
 import 'package:ticket/app/presentation/view/ticket_page.dart';
 
 class HomeScreen extends StatefulWidget {

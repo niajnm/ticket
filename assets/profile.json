@@ -1,0 +1,24 @@
+{
+  "firstName": "Jonaus",
+  "lastName": "Kahnwald",
+  "email": "Username@email.com",
+  "fullName": "Jonaus Kahnwald",
+  "designation": "Support",
+  "avatar": "https://picsum.photos/200",
+  "roles": [
+    {
+      "title": "Manager",
+      "subtitle": "Codecyaneon support",
+      "avatarUrl": "https://picsum.photos/2000",
+      "name": "Jonaus Kahnwald",
+      "isPartial": false
+    },
+    {
+      "title": "Agent",
+      "subtitle": "Laravel support",
+      "avatarUrl": "https://picsum.photos/20",
+      "name": "Agent Name",
+      "isPartial": true
+    }
+  ]
+}

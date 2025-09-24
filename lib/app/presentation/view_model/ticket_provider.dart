@@ -6,35 +6,45 @@ import 'package:ticket/app/model/ticket.dart';
 class TicketProvider with ChangeNotifier {
   final TicketsRepositorySource _ticketSource =
       serviceLocator<TicketsRepositorySource>();
+
   List<Ticket> _tickets = [];
   List<Ticket> _filteredTickets = [];
   bool _isLoading = false;
 
-  // filters
+  // Filters
   String? selectedBrand;
   String? selectedPriority;
   List<String> selectedTags = [];
 
+  // Dynamic filter options
+  List<String> availableBrands = [];
+  List<String> availableTags = [];
+  final List<String> availablePriorities = ["Low", "Medium", "Urgent"];
+
+  // Getters
   List<Ticket> get tickets => _filteredTickets;
   bool get isLoading => _isLoading;
 
+  /// Load tickets from repository and extract filter options
   Future<void> loadTickets() async {
     _isLoading = true;
     notifyListeners();
 
-    // final String response = await rootBundle.loadString('assets/tickets.json');
-    // final List data = json.decode(response);
-
     final data = await _ticketSource.fetchTicketsGet(0);
     _tickets = data;
-
-    // = data.map((e) => Ticket.fromJson(e)).toList();
     _filteredTickets = List.from(_tickets);
+
+    // Extract unique brands
+    availableBrands = _tickets.map((t) => t.brand).toSet().toList();
+
+    // Extract unique tags
+    availableTags = _tickets.expand((t) => t.tags).toSet().toList();
 
     _isLoading = false;
     notifyListeners();
   }
 
+  /// Apply filters
   void applyFilters() {
     if (_tickets.isEmpty) return;
 
@@ -45,12 +55,14 @@ class TicketProvider with ChangeNotifier {
       final tagMatch =
           selectedTags.isEmpty ||
           selectedTags.any((tag) => ticket.tags.contains(tag));
+
       return brandMatch && priorityMatch && tagMatch;
     }).toList();
 
     notifyListeners();
   }
 
+  /// Clear filters
   void clearFilters() {
     selectedBrand = null;
     selectedPriority = null;

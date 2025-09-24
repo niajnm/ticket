@@ -36,46 +36,61 @@ class FilterPage extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
+              /// ---------------- Brand ----------------
               const Text("Brand"),
-              CheckboxListTile(
-                value: provider.selectedBrand == "Gains",
-                onChanged: (_) {
-                  provider.selectedBrand = provider.selectedBrand == "Gains"
-                      ? null
-                      : "Gains";
-                  provider.notifyListeners();
-                },
-                title: const Text("Gains"),
-              ),
-              CheckboxListTile(
-                value: provider.selectedBrand == "GainSolution",
-                onChanged: (_) {
-                  provider.selectedBrand =
-                      provider.selectedBrand == "GainSolution"
-                      ? null
-                      : "GainSolution";
-                  provider.notifyListeners();
-                },
-                title: const Text("GainSolution"),
-              ),
-              CheckboxListTile(
-                value: provider.selectedBrand == "GainHQ",
-                onChanged: (_) {
-                  provider.selectedBrand = provider.selectedBrand == "GainHQ"
-                      ? null
-                      : "GainHQ";
-                  provider.notifyListeners();
-                },
-                title: const Text("GainHQ"),
-              ),
+              for (var brand in provider.availableBrands)
+                InkWell(
+                  onTap: () {
+                    provider.selectedBrand = provider.selectedBrand == brand
+                        ? null
+                        : brand;
+                    provider.notifyListeners();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Row(
+                      children: [
+                        // Checkbox on the left
+                        Checkbox(
+                          value: provider.selectedBrand == brand,
+                          onChanged: (_) {
+                            provider.selectedBrand =
+                                provider.selectedBrand == brand ? null : brand;
+                            provider.notifyListeners();
+                          },
+                        ),
+                        const SizedBox(width: 8),
+
+                        // Icon in the middle
+                        const Icon(
+                          Icons.local_offer,
+                          size: 20,
+                          color: Colors.blue,
+                        ),
+                        const SizedBox(width: 8),
+
+                        // Text
+                        Text(
+                          brand,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
               const SizedBox(height: 16),
 
+              /// ---------------- Priority ----------------
               const Text("Priority"),
               DropdownButton<String>(
                 isExpanded: true,
                 value: provider.selectedPriority,
                 hint: const Text("Select priority"),
-                items: ["Low", "Medium", "Urgent"]
+                items: provider.availablePriorities
                     .map((p) => DropdownMenuItem(value: p, child: Text(p)))
                     .toList(),
                 onChanged: (value) {
@@ -85,19 +100,12 @@ class FilterPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
+              /// ---------------- Tags ----------------
               const Text("Tags"),
               Wrap(
                 spacing: 8,
                 children: [
-                  for (var tag in [
-                    "Tag one",
-                    "Tag two",
-                    "Tag three wit long text",
-                    "Tag four",
-                    "Tag five",
-                    "Tag six with long text",
-                    "Tag seven",
-                  ])
+                  for (var tag in provider.availableTags)
                     FilterChip(
                       label: Text(tag),
                       selected: provider.selectedTags.contains(tag),

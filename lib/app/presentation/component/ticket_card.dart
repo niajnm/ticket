@@ -8,53 +8,20 @@ class TicketCard extends StatelessWidget {
 
   const TicketCard({super.key, required this.ticket, this.onTap});
 
+  // ----- Color helpers -----
   Color _priorityColor(String priority) {
     switch (priority.toLowerCase()) {
       case 'urgent':
         return Colors.red;
       case 'high':
         return Colors.deepOrange;
-      case 'low':
-        return Colors.green;
       case 'medium':
         return Colors.orange;
+      case 'low':
+        return Colors.green;
       default:
         return Colors.grey;
     }
-  }
-
-  Color _tagColor(String tag) {
-    final lower = tag.toLowerCase();
-    if (lower.contains('overdue')) return Colors.orange;
-    if (lower.contains('responded') || lower.contains('customer')) {
-      return Colors.purple;
-    }
-    if (lower.contains('new')) return Colors.lightBlue;
-    if (lower.contains('critical')) return Colors.red;
-    if (lower.contains('security')) return Colors.deepPurple;
-    if (lower.contains('performance')) return Colors.indigo;
-    if (lower.contains('payment')) return Colors.teal;
-    return Colors.blueGrey;
-  }
-
-  Widget _chip(String text, {Color? bg, Color? fg, BorderSide? border}) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      margin: const EdgeInsets.only(top: 6),
-      decoration: BoxDecoration(
-        color: bg,
-        borderRadius: BorderRadius.circular(16),
-        border: border == null ? null : Border.fromBorderSide(border),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: fg ?? Colors.black87,
-          fontSize: 12,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    );
   }
 
   Color _statusColor(String status) {
@@ -76,12 +43,26 @@ class TicketCard extends StatelessWidget {
     }
   }
 
+  Color _tagColor(String tag) {
+    final lower = tag.toLowerCase();
+    if (lower.contains('overdue')) return Colors.orange;
+    if (lower.contains('responded') || lower.contains('customer')) {
+      return Colors.purple;
+    }
+    if (lower.contains('new')) return Colors.lightBlue;
+    if (lower.contains('critical')) return Colors.red;
+    if (lower.contains('security')) return Colors.deepPurple;
+    if (lower.contains('performance')) return Colors.indigo;
+    if (lower.contains('payment')) return Colors.teal;
+    return Colors.blueGrey;
+  }
+
   @override
   Widget build(BuildContext context) {
     final tagText = ticket.tags.isNotEmpty ? ticket.tags.first : '';
     final priorityColor = _priorityColor(ticket.priority);
-    final tagColor = tagText.isNotEmpty ? _tagColor(tagText) : null;
     final statusColor = _statusColor(ticket.status);
+    final tagColor = tagText.isNotEmpty ? _tagColor(tagText) : null;
 
     return InkWell(
       onTap: onTap,
@@ -103,73 +84,17 @@ class TicketCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header row with category and brand (only if they exist)
             if (ticket.category.isNotEmpty || ticket.brand.isNotEmpty)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  if (ticket.category.isNotEmpty)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.blue.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        ticket.category,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  if (ticket.brand.isNotEmpty)
-                    Text(
-                      ticket.brand,
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                ],
-              ),
+              _HeaderRow(ticket: ticket),
 
-            if (ticket.category.isNotEmpty || ticket.brand.isNotEmpty)
-              const SizedBox(height: 8),
+            if (tagText.isNotEmpty) _TagBadge(text: tagText, color: tagColor!),
 
-            // Tag badge
-            if (tagText.isNotEmpty)
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: tagColor!.withOpacity(0.12),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  tagText,
-                  style: TextStyle(
-                    color: tagColor,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-
-            if (tagText.isNotEmpty) const SizedBox(height: 8),
-
-            // ID
             Text(
               '#ID ${ticket.id}',
               style: TextStyle(color: Colors.grey[600], fontSize: 12),
             ),
             const SizedBox(height: 6),
 
-            // Subject
             Text(
               ticket.subject,
               style: const TextStyle(
@@ -183,7 +108,6 @@ class TicketCard extends StatelessWidget {
 
             const SizedBox(height: 10),
 
-            // Customer and date
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -201,46 +125,139 @@ class TicketCard extends StatelessWidget {
             const SizedBox(height: 10),
             const Divider(height: 1),
 
-            // Chips: priority, status, department, and additional tags
             Wrap(
               spacing: 8,
               runSpacing: 6,
               children: [
-                // priority chip
-                _chip(
-                  ticket.priority,
+                _ChipLabel(
+                  text: ticket.priority,
                   bg: priorityColor.withOpacity(0.12),
                   fg: priorityColor,
                 ),
-
-                // status chip
-                _chip(
-                  ticket.status,
+                _ChipLabel(
+                  text: ticket.status,
                   bg: statusColor.withOpacity(0.12),
                   fg: statusColor,
                 ),
-
-                // department chip (only if exists)
                 if (ticket.department.isNotEmpty)
-                  _chip(
-                    ticket.department,
+                  _ChipLabel(
+                    text: ticket.department,
                     bg: Colors.grey.shade100,
                     fg: Colors.grey.shade700,
                     border: BorderSide(color: Colors.grey.shade300),
                   ),
-
-                // extra quick tag chips (limit to first 2 additional tags)
-                for (var i = 0; i < ticket.tags.length && i < 3; i++)
-                  if (i != 0) // first tag shows as top badge already, so skip 0
-                    _chip(
-                      ticket.tags[i],
-                      bg: Colors.grey.shade50,
-                      border: BorderSide(color: Colors.grey.shade200),
-                    ),
+                for (var i = 1; i < ticket.tags.length && i < 3; i++)
+                  _ChipLabel(
+                    text: ticket.tags[i],
+                    bg: Colors.grey.shade50,
+                    border: BorderSide(color: Colors.grey.shade200),
+                  ),
               ],
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// ----- Private Widgets -----
+
+class _ChipLabel extends StatelessWidget {
+  final String text;
+  final Color? bg;
+  final Color? fg;
+  final BorderSide? border;
+
+  const _ChipLabel({required this.text, this.bg, this.fg, this.border});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      margin: const EdgeInsets.only(top: 6),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(16),
+        border: border == null ? null : Border.fromBorderSide(border!),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: fg ?? Colors.black87,
+          fontSize: 12,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+}
+
+class _TagBadge extends StatelessWidget {
+  final String text;
+  final Color color;
+
+  const _TagBadge({required this.text, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.12),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: color,
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+}
+
+class _HeaderRow extends StatelessWidget {
+  final Ticket ticket;
+
+  const _HeaderRow({required this.ticket});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          if (ticket.category.isNotEmpty)
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.blue.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                ticket.category,
+                style: const TextStyle(
+                  color: Colors.blue,
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          if (ticket.brand.isNotEmpty)
+            Text(
+              ticket.brand,
+              style: TextStyle(
+                color: Colors.grey[600],
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+        ],
       ),
     );
   }
