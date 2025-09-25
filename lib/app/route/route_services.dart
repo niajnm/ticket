@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticket/app/presentation/contacts/page/contact_page.dart';
 import 'package:ticket/app/presentation/home_bottom/home_screen.dart';
+import 'package:ticket/app/presentation/tickets/page/filter_page.dart';
 
 import 'package:ticket/app/route/route_paths.dart';
 
@@ -13,23 +14,17 @@ class RouteServices {
           settings: settings,
         );
 
-      // case RoutePaths.ticket:
-      //   return MaterialPageRoute(
-      //     builder: (_) => const ticketScreen(),
-      //     settings: settings,
-      //   );
-
       case RoutePaths.contact:
         return MaterialPageRoute(
           builder: (_) => ContactPage(),
           settings: settings,
         );
 
-      // case RoutePaths.leaderboard:
-      //   return MaterialPageRoute(
-      //     builder: (_) => LeaderboardScreen(),
-      //     settings: settings,
-      //   );
+      case RoutePaths.filter:
+        return MaterialPageRoute(
+          builder: (_) => FilterPage(),
+          settings: settings,
+        );
 
       default:
         return _errorRoute();

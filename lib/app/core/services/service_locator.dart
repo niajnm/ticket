@@ -1,12 +1,16 @@
 import 'package:get_it/get_it.dart';
 import 'package:ticket/app/core/data/local/contacts_local/contacts_local_source.dart';
 import 'package:ticket/app/core/data/local/contacts_local/contacts_local_source_impl.dart';
+import 'package:ticket/app/core/data/local/profile_local/profile_local_source.dart';
+import 'package:ticket/app/core/data/local/profile_local/profile_local_source_impl.dart';
 import 'package:ticket/app/core/data/local/tickets_local/tickets_local_source.dart';
 import 'package:ticket/app/core/data/local/tickets_local/tickets_local_source_impl.dart';
 import 'package:ticket/app/core/data/remote/fetch/remote_source.dart';
 import 'package:ticket/app/core/data/remote/fetch/remote_source_impl.dart';
 import 'package:ticket/app/core/data/repository/contacts_repo/contacts_repository_source.dart';
 import 'package:ticket/app/core/data/repository/contacts_repo/contacts_repository_source_impl.dart';
+import 'package:ticket/app/core/data/repository/profile_repo/profile_repository_source.dart';
+import 'package:ticket/app/core/data/repository/profile_repo/profile_repository_source_impl.dart';
 import 'package:ticket/app/core/data/repository/tickets_repo/tickets_repository_source.dart';
 import 'package:ticket/app/core/data/repository/tickets_repo/tickets_repository_source_impl.dart';
 
@@ -31,6 +35,13 @@ class ServiceLocator {
 
     serviceLocator.registerLazySingleton<ContactsRepositorySource>(
       () => ContactsRepositorySourceImpl(),
+    );
+    serviceLocator.registerLazySingleton<ProfileLocalSource>(
+      () => ProfileLocalSourceImpl(),
+    );
+
+    serviceLocator.registerLazySingleton<ProfileRepositorySource>(
+      () => ProfileRepositorySourceImpl(),
     );
 
     serviceLocator.registerLazySingleton<RemoteSource>(

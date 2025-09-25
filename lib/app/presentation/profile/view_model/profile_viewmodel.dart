@@ -1,9 +1,11 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket/app/core/data/repository/profile_repo/profile_repository_source.dart';
+import 'package:ticket/app/core/services/service_locator.dart';
 import 'package:ticket/app/model/profile_model.dart';
 
 class ProfileViewModel with ChangeNotifier {
+  final ProfileRepositorySource _profileSource =
+      serviceLocator<ProfileRepositorySource>();
   Profile? _profile;
   bool _isLoading = false;
   String? _error;
@@ -18,11 +20,7 @@ class ProfileViewModel with ChangeNotifier {
     notifyListeners();
 
     try {
-      final String response = await rootBundle.loadString(
-        'assets/profile.json',
-      );
-      final data = json.decode(response);
-      _profile = Profile.fromJson(data);
+      _profile = await _profileSource.fetchProfileGet('');
     } catch (e) {
       _error = "Failed to load profile: $e";
     }

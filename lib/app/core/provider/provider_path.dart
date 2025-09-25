@@ -10,8 +10,5 @@ class ProviderPath {
     ChangeNotifierProvider(create: (_) => ContactViewModel(), lazy: true),
     ChangeNotifierProvider(create: (_) => ProfileViewModel(), lazy: true),
     ChangeNotifierProvider(create: (_) => HomeViewModel(), lazy: true),
-
-    // ChangeNotifierProvider(create: (_) => BottomNavController(), lazy: true),
-    // ChangeNotifierProvider(create: (_) => ThemeController(), lazy: true),
   ];
 }

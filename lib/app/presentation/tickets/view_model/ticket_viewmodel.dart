@@ -19,7 +19,8 @@ class TicketViewModel with ChangeNotifier {
   // Dynamic filter options
   List<String> availableBrands = [];
   List<String> availableTags = [];
-  final List<String> availablePriorities = ["Low", "Medium", "Urgent"];
+  List<String> availablePri = [];
+  late List<String> availablePriorities = [];
 
   // Getters
   List<Ticket> get tickets => _filteredTickets;
@@ -39,6 +40,8 @@ class TicketViewModel with ChangeNotifier {
 
     // Extract unique tags
     availableTags = _tickets.expand((t) => t.tags).toSet().toList();
+
+    availablePriorities = _tickets.map((t) => t.priority).toSet().toList();
 
     _isLoading = false;
     notifyListeners();
@@ -83,7 +86,7 @@ class TicketViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  /// Toggle a tag in selectedTags
+  /// Toggle selectedTags
   void toggleTag(String tag) {
     if (selectedTags.contains(tag)) {
       selectedTags.remove(tag);

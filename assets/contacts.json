@@ -4,7 +4,7 @@
     "email": "michel@email.com",
     "phone": "+12 34 56 78 90",
     "address": "12A, Lillistrom, Norway",
-    "imageUrl": "https://picsum.photos/20"
+    "imageUrl": "https://picsum.photos/20/10"
   },
   {
     "name": "Noah",
@@ -18,14 +18,14 @@
     "email": "jonus@email.com",
     "phone": "+12 34 56 78 92",
     "address": "34C, Bergen, Norway",
-    "imageUrl": "https://picsum.photos/22"
+    "imageUrl": "https://picsum.photos/243"
   },
   {
     "name": "Sophia Loren",
     "email": "sophia@email.com",
     "phone": "+12 34 56 78 93",
     "address": "45D, Trondheim, Norway",
-    "imageUrl": "https://picsum.photos/23"
+    "imageUrl": "https://picsum.photos/213"
   },
   {
     "name": "Liam Neeson",

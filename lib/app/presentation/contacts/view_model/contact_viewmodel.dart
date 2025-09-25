@@ -26,11 +26,6 @@ class ContactViewModel extends ChangeNotifier {
     notifyListeners();
 
     try {
-      // final String response = await DefaultAssetBundle.of(
-      //   context,
-      // ).loadString('assets/contacts.json');
-      // final List<dynamic> data = json.decode(response);
-
       final data = await _contactSource.fetchContactsGet(0);
       _allContacts = data;
       _filteredContacts = _allContacts;

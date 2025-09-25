@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ticket/app/model/contact.dart';
 import 'package:ticket/app/presentation/component/app_bar.dart';
-import 'package:ticket/app/presentation/contacts/widgets/contact_item.dart';
 import 'package:ticket/app/presentation/component/search_bar.dart';
 import 'package:ticket/app/presentation/contacts/view_model/contact_viewmodel.dart';
+import 'package:ticket/app/presentation/contacts/widgets/contact_item.dart';
+
 import 'contact_profile_page.dart';
 
 class ContactPage extends StatefulWidget {
@@ -57,10 +59,7 @@ class _ContactPageState extends State<ContactPage> {
               _searchBar(viewModel),
 
               // Contacts Header
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Text('${viewModel.contacts.length} Contacts'),
-              ),
+              _contactHeader(viewModel),
 
               // Contacts List
               Expanded(
@@ -75,13 +74,7 @@ class _ContactPageState extends State<ContactPage> {
                           final contact = viewModel.contacts[index];
                           return ContactItem(
                             contact: contact,
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    ProfilePage(contact: contact),
-                              ),
-                            ),
+                            onTap: () => _navigateToProfile(context, contact),
                           );
                         },
                       ),
@@ -109,6 +102,19 @@ class _ContactPageState extends State<ContactPage> {
     );
   }
 
+  Widget _contactHeader(ContactViewModel viewModel) => Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          "${context.watch<ContactViewModel>().contacts.length} contacts",
+          style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+        ),
+      ],
+    ),
+  );
+
   Widget _buildEmptyState() {
     return Center(
       child: Column(
@@ -126,6 +132,15 @@ class _ContactPageState extends State<ContactPage> {
             style: TextStyle(color: Colors.grey[600]),
           ),
         ],
+      ),
+    );
+  }
+
+  void _navigateToProfile(BuildContext context, Contact contact) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ContactProfilePage(contact: contact),
       ),
     );
   }

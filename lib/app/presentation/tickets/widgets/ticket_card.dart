@@ -8,55 +8,6 @@ class TicketCard extends StatelessWidget {
 
   const TicketCard({super.key, required this.ticket, this.onTap});
 
-  // ----- Color helpers -----
-  Color _priorityColor(String priority) {
-    switch (priority.toLowerCase()) {
-      case 'urgent':
-        return Colors.red;
-      case 'high':
-        return Colors.deepOrange;
-      case 'medium':
-        return Colors.orange;
-      case 'low':
-        return Colors.green;
-      default:
-        return Colors.grey;
-    }
-  }
-
-  Color _statusColor(String status) {
-    switch (status.toLowerCase()) {
-      case 'open':
-        return Colors.blue;
-      case 'closed':
-        return Colors.green;
-      case 'pending':
-        return Colors.orange;
-      case 'in progress':
-        return Colors.purple;
-      case 'spam':
-        return Colors.red;
-      case 'reopened':
-        return Colors.amber;
-      default:
-        return Colors.grey;
-    }
-  }
-
-  Color _tagColor(String tag) {
-    final lower = tag.toLowerCase();
-    if (lower.contains('overdue')) return Colors.orange;
-    if (lower.contains('responded') || lower.contains('customer')) {
-      return Colors.purple;
-    }
-    if (lower.contains('new')) return Colors.lightBlue;
-    if (lower.contains('critical')) return Colors.red;
-    if (lower.contains('security')) return Colors.deepPurple;
-    if (lower.contains('performance')) return Colors.indigo;
-    if (lower.contains('payment')) return Colors.teal;
-    return Colors.blueGrey;
-  }
-
   @override
   Widget build(BuildContext context) {
     final tagText = ticket.tags.isNotEmpty ? ticket.tags.first : '';
@@ -109,11 +60,17 @@ class TicketCard extends StatelessWidget {
             const SizedBox(height: 10),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   ticket.customerName,
                   style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                    radius: 3,
+                    backgroundColor: Colors.grey[400],
+                  ),
                 ),
                 Text(
                   AppUtils.formatDate(ticket.date),
@@ -161,7 +118,7 @@ class TicketCard extends StatelessWidget {
   }
 }
 
-// ----- Private Widgets -----
+// -----Widgets -----
 
 class _ChipLabel extends StatelessWidget {
   final String text;
@@ -261,4 +218,54 @@ class _HeaderRow extends StatelessWidget {
       ),
     );
   }
+}
+
+// ----- Color helpers -----
+
+Color _priorityColor(String priority) {
+  switch (priority.toLowerCase()) {
+    case 'urgent':
+      return Colors.red;
+    case 'high':
+      return Colors.deepOrange;
+    case 'medium':
+      return Colors.orange;
+    case 'low':
+      return Colors.green;
+    default:
+      return Colors.grey;
+  }
+}
+
+Color _statusColor(String status) {
+  switch (status.toLowerCase()) {
+    case 'open':
+      return Colors.blue;
+    case 'closed':
+      return Colors.green;
+    case 'pending':
+      return Colors.orange;
+    case 'in progress':
+      return Colors.purple;
+    case 'spam':
+      return Colors.red;
+    case 'reopened':
+      return Colors.amber;
+    default:
+      return Colors.grey;
+  }
+}
+
+Color _tagColor(String tag) {
+  final lower = tag.toLowerCase();
+  if (lower.contains('overdue')) return Colors.orange;
+  if (lower.contains('responded') || lower.contains('customer')) {
+    return Colors.purple;
+  }
+  if (lower.contains('new')) return Colors.lightBlue;
+  if (lower.contains('critical')) return Colors.red;
+  if (lower.contains('security')) return Colors.deepPurple;
+  if (lower.contains('performance')) return Colors.indigo;
+  if (lower.contains('payment')) return Colors.teal;
+  return Colors.blueGrey;
 }

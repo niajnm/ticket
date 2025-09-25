@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:ticket/app/presentation/component/app_bar.dart';
 import 'package:ticket/app/presentation/tickets/widgets/ticket_card.dart';
 import 'package:ticket/app/presentation/tickets/view_model/ticket_viewmodel.dart';
-import 'filter_page.dart';
+import 'package:ticket/app/route/route_paths.dart';
 
 class TicketsPage extends StatefulWidget {
   const TicketsPage({super.key});
@@ -17,7 +17,7 @@ class _TicketsPageState extends State<TicketsPage> {
   @override
   void initState() {
     super.initState();
-    // Load tickets once when the page is first opened
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<TicketViewModel>().loadTickets();
     });
@@ -54,12 +54,9 @@ class _HeaderRow extends StatelessWidget {
             style: TextStyle(fontSize: 14, color: Colors.grey[700]),
           ),
           IconButton(
-            icon: const Icon(Icons.filter_alt_outlined, color: Colors.black),
+            icon: const Icon(Icons.filter_alt_outlined),
             onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const FilterPage()),
-              );
+              await Navigator.pushNamed(context, RoutePaths.filter);
               context.read<TicketViewModel>().applyFilters();
             },
           ),
@@ -84,7 +81,7 @@ class _TicketList extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
 
-        if (provider.tickets.isEmpty) {
+        if (provider.tickets.isEmpty && provider.isLoading == false) {
           return const Center(child: Text("No tickets found"));
         }
 
