@@ -57,8 +57,6 @@ class _ContactPageState extends State<ContactPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _searchBar(viewModel),
-
-              // Contacts Header
               _contactHeader(viewModel),
 
               // Contacts List

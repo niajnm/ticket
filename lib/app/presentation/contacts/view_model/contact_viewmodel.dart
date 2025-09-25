@@ -62,7 +62,7 @@ class ContactViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Optional: Method to refresh data
+  // Method to refresh data
   Future<void> refreshContacts(BuildContext context) async {
     _isDataLoaded = false;
     await loadContacts(context);

@@ -95,4 +95,21 @@ class TicketViewModel with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  String _tagSearchQuery = "";
+  String get tagSearchQuery => _tagSearchQuery;
+
+  void updateTagSearch(String query) {
+    _tagSearchQuery = query;
+    notifyListeners();
+  }
+
+  List<String> get filteredTags {
+    if (_tagSearchQuery.isEmpty) return availableTags;
+    return availableTags
+        .where(
+          (tag) => tag.toLowerCase().contains(_tagSearchQuery.toLowerCase()),
+        )
+        .toList();
+  }
 }

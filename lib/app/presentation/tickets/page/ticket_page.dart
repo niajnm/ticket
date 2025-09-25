@@ -17,7 +17,6 @@ class _TicketsPageState extends State<TicketsPage> {
   @override
   void initState() {
     super.initState();
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<TicketViewModel>().loadTickets();
     });

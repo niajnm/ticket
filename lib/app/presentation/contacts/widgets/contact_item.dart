@@ -25,7 +25,7 @@ class ContactItem extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Row(
                 children: [
                   CircleAvatar(
@@ -49,17 +49,12 @@ class ContactItem extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 8),
-
               // Email row
               _infoRow(Icons.email, contact.email),
-
               const SizedBox(height: 4),
-
               //Phone row
               _infoRow(Icons.phone, contact.phone),
-
               const SizedBox(height: 4),
-
               //  Address row
               _infoRow(Icons.location_on, contact.address, expand: true),
             ],

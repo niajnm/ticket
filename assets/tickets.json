@@ -70,23 +70,234 @@
     "tags": ["Tag two", "Tag five"]
   },
   {
-    "id": "132198429",
-    "subject": "Epockem email received for updates",
-    "status": "Reopened",
-    "priority": "Open",
-    "customerName": "Ava",
-    "date": "2024-05-02 16:40",
+    "id": "132198431",
+    "subject": "User cannot login after account verification",
+    "status": "Open",
+    "priority": "High",
+    "customerName": "Charlotte",
+    "date": "2024-06-15 11:22",
+    "brand": "GainSolution",
+    "tags": ["Tag three wit long text", "Tag six with long text"]
+  },
+  {
+    "id": "132198432",
+    "subject": "Data sync taking too long on mobile app",
+    "status": "Closed",
+    "priority": "Low",
+    "customerName": "James",
+    "date": "2024-06-20 17:30",
+    "brand": "GainHQ",
+    "tags": ["Tag one"]
+  },
+  {
+    "id": "132198433",
+    "subject": "Invoices not generating properly for some users",
+    "status": "In Progress",
+    "priority": "Medium",
+    "customerName": "Isabella",
+    "date": "2024-07-05 09:45",
     "brand": "Gains",
+    "tags": ["Tag five", "Tag four"]
+  },
+  {
+    "id": "132198434",
+    "subject": "Push notifications not received in Android 13",
+    "status": "Pending",
+    "priority": "Urgent",
+    "customerName": "Benjamin",
+    "date": "2024-07-12 13:14",
+    "brand": "GainSolution",
+    "tags": ["Tag six with long text"]
+  },
+  {
+    "id": "132198435",
+    "subject": "Error when exporting data as CSV",
+    "status": "Reopened",
+    "priority": "High",
+    "customerName": "Amelia",
+    "date": "2024-08-01 20:30",
+    "brand": "GainHQ",
+    "tags": ["Tag two", "Tag four"]
+  },
+  {
+    "id": "132198436",
+    "subject": "App layout broken on iPad devices",
+    "status": "Closed",
+    "priority": "Low",
+    "customerName": "Elijah",
+    "date": "2024-08-15 08:00",
+    "brand": "GainSolution",
+    "tags": ["Tag three wit long text"]
+  },
+  {
+    "id": "132198437",
+    "subject": "Frequent logouts happening unexpectedly",
+    "status": "Open",
+    "priority": "Medium",
+    "customerName": "Mia",
+    "date": "2024-09-02 14:25",
+    "brand": "Gains",
+    "tags": ["Tag five", "Tag six with long text"]
+  },
+  {
+    "id": "132198438",
+    "subject": "Request for integration with third-party API",
+    "status": "In Progress",
+    "priority": "High",
+    "customerName": "Lucas",
+    "date": "2024-09-20 18:42",
+    "brand": "GainHQ",
+    "tags": ["Tag seven", "Tag one"]
+  },
+  {
+    "id": "132198439",
+    "subject": "UI colors inconsistent in dark mode",
+    "status": "Pending",
+    "priority": "Low",
+    "customerName": "Harper",
+    "date": "2024-10-05 12:12",
+    "brand": "GainSolution",
+    "tags": ["Tag two"]
+  },
+  {
+    "id": "132198440",
+    "subject": "Search results showing duplicate entries",
+    "status": "Reopened",
+    "priority": "Urgent",
+    "customerName": "Henry",
+    "date": "2024-10-18 07:55",
+    "brand": "GainHQ",
+    "tags": ["Tag three wit long text", "Tag four"]
+  },
+  {
+    "id": "132198441",
+    "subject": "Slow performance on dashboard widgets",
+    "status": "Open",
+    "priority": "High",
+    "customerName": "Ella",
+    "date": "2024-11-02 16:35",
+    "brand": "Gains",
+    "tags": ["Tag five", "Tag six with long text"]
+  },
+  {
+    "id": "132198442",
+    "subject": "Error 500 on specific report generation",
+    "status": "Closed",
+    "priority": "Medium",
+    "customerName": "Daniel",
+    "date": "2024-11-12 11:10",
+    "brand": "GainSolution",
+    "tags": ["Tag two", "Tag seven"]
+  },
+  {
+    "id": "132198443",
+    "subject": "Attachment upload fails intermittently",
+    "status": "Pending",
+    "priority": "Urgent",
+    "customerName": "Aria",
+    "date": "2024-11-28 09:00",
+    "brand": "GainHQ",
+    "tags": ["Tag one"]
+  },
+  {
+    "id": "132198444",
+    "subject": "Customer cannot delete their account",
+    "status": "Open",
+    "priority": "High",
+    "customerName": "Matthew",
+    "date": "2024-12-05 20:15",
+    "brand": "Gains",
+    "tags": ["Tag six with long text", "Tag two"]
+  },
+  {
+    "id": "132198445",
+    "subject": "Mismatch between web and mobile totals",
+    "status": "Reopened",
+    "priority": "Medium",
+    "customerName": "Scarlett",
+    "date": "2024-12-15 14:40",
+    "brand": "GainSolution",
+    "tags": ["Tag four", "Tag five"]
+  },
+  {
+    "id": "132198446",
+    "subject": "Recurring payments failing for premium users",
+    "status": "In Progress",
+    "priority": "Urgent",
+    "customerName": "Jack",
+    "date": "2025-01-02 09:25",
+    "brand": "GainHQ",
+    "tags": ["Tag three wit long text"]
+  },
+  {
+    "id": "132198447",
+    "subject": "Calendar events not syncing correctly",
+    "status": "Closed",
+    "priority": "Low",
+    "customerName": "Victoria",
+    "date": "2025-01-18 18:50",
+    "brand": "Gains",
+    "tags": ["Tag seven", "Tag one"]
+  },
+  {
+    "id": "132198448",
+    "subject": "Dropdown menu overlaps other UI elements",
+    "status": "Open",
+    "priority": "High",
+    "customerName": "Samuel",
+    "date": "2025-02-05 12:20",
+    "brand": "GainSolution",
     "tags": ["Tag two", "Tag five"]
   },
   {
-    "id": "132198430",
-    "subject": "System performance degraded after latest update",
+    "id": "132198449",
+    "subject": "Captcha not loading on login page",
+    "status": "Pending",
+    "priority": "Urgent",
+    "customerName": "Grace",
+    "date": "2025-02-22 15:33",
+    "brand": "GainHQ",
+    "tags": ["Tag four"]
+  },
+  {
+    "id": "132198450",
+    "subject": "Session timeout too aggressive for users",
+    "status": "In Progress",
+    "priority": "Medium",
+    "customerName": "Alexander",
+    "date": "2025-03-10 10:10",
+    "brand": "Gains",
+    "tags": ["Tag five", "Tag six with long text"]
+  },
+  {
+    "id": "132198451",
+    "subject": "Search suggestions not showing on mobile",
+    "status": "Closed",
+    "priority": "Low",
+    "customerName": "Zoe",
+    "date": "2025-03-21 11:11",
+    "brand": "GainSolution",
+    "tags": ["Tag one", "Tag two"]
+  },
+  {
+    "id": "132198452",
+    "subject": "Error loading dashboard graphs in Safari",
     "status": "Open",
     "priority": "High",
-    "customerName": "Mason",
-    "date": "2024-06-11 09:18",
-    "brand": "GainSolution",
+    "customerName": "Nathan",
+    "date": "2025-04-01 08:40",
+    "brand": "GainHQ",
     "tags": ["Tag three wit long text", "Tag six with long text"]
-  }
+  },
+  {
+  "id": "132198453",
+  "subject": "Test case: GainSolution Medium with Tag one",
+  "status": "Open",
+  "priority": "Medium",
+  "customerName": "TestUser",
+  "date": "2025-04-15 14:22",
+  "brand": "GainSolution",
+  "tags": ["Tag one", "Tag five"]
+}
+
 ]

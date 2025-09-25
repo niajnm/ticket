@@ -23,7 +23,7 @@ class PriorityDropdown extends StatelessWidget {
                 .map((p) => DropdownMenuItem(value: p, child: Text(p)))
                 .toList(),
             onChanged: provider.setPriority,
-            underline: const SizedBox(), // Remove default underline
+            underline: const SizedBox(),
           ),
         );
       },

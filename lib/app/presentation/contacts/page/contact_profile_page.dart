@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticket/app/core/base/styles.dart';
 import 'package:ticket/app/model/contact.dart';
 import 'package:ticket/app/presentation/contacts/widgets/info_card.dart';
 
@@ -21,18 +22,14 @@ class ContactProfilePage extends StatelessWidget {
             // Header section
             Container(
               height: 300,
-              decoration: boxDecoration(colorScheme),
+              decoration: contactHeaderDecoration(colorScheme),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 40),
-
-                    // Profile Image
                     profileImage(contact.imageUrl, colorScheme),
-
                     const SizedBox(height: 16),
-                    // Name
                     Text(contact.name, style: textTheme.headlineMedium),
                   ],
                 ),
@@ -56,7 +53,6 @@ class ContactProfilePage extends StatelessWidget {
                     children: [
                       const SizedBox(height: 20),
 
-                      // Contact Information Cards
                       InfoCard(
                         icon: Icons.email_outlined,
                         label: 'Email',
@@ -98,10 +94,7 @@ class ContactProfilePage extends StatelessWidget {
       elevation: 0,
       leading: Container(
         margin: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: colorScheme.surface.withOpacity(0.9),
-          borderRadius: BorderRadius.circular(12),
-        ),
+        decoration: contactAppBarButtonDecoration(colorScheme),
         child: IconButton(
           icon: Icon(Icons.arrow_back, color: colorScheme.onSurface),
           onPressed: () => Navigator.of(context).pop(),
@@ -112,7 +105,7 @@ class ContactProfilePage extends StatelessWidget {
 
   Widget profileImage(String imageUrl, ColorScheme colorScheme) {
     return Container(
-      decoration: imageBoxDecoration(colorScheme),
+      decoration: contactImageDecoration(colorScheme),
       child: CircleAvatar(
         radius: 60,
         backgroundImage: NetworkImage(imageUrl),
@@ -120,29 +113,4 @@ class ContactProfilePage extends StatelessWidget {
       ),
     );
   }
-
-  BoxDecoration boxDecoration(ColorScheme colorScheme) {
-    return BoxDecoration(
-      gradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          colorScheme.shadow.withOpacity(0.3),
-          colorScheme.secondaryContainer,
-        ],
-      ),
-    );
-  }
-
-  BoxDecoration imageBoxDecoration(ColorScheme colorScheme) => BoxDecoration(
-    shape: BoxShape.circle,
-    boxShadow: [
-      BoxShadow(
-        color: colorScheme.shadow.withOpacity(0.3),
-        spreadRadius: 2,
-        blurRadius: 15,
-        offset: const Offset(0, 8),
-      ),
-    ],
-  );
 }
