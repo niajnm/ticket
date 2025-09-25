@@ -129,12 +129,12 @@ Got it 👍 — here’s the corrected **README section** with the requested cha
 
 You can download and test the latest build of the app from Google Drive:
 
-👉 [Download APK](https://drive.google.com/your-apk-link-here)
+👉 [Download APK](https://drive.google.com/drive/folders/1pStTD5kMulsDG3Mf_W7ehRiY6A19sJU0?usp=sharing)
 
 This project is integrated with **GitHub Actions** for continuous integration and delivery.
 Whenever you push to the repository, a workflow is triggered to build the Flutter APK.
 
-🔗 [GitHub Actions Workflow](https://github.com/your-repo/actions)
+🔗 [GitHub Actions Workflow](https://github.com/niajnm/ticket/actions)
 
 
 ---
