@@ -12,8 +12,6 @@ The app demonstrates **MVVM architecture**, **Repository pattern**, **State Mana
 * Navigates to a **Filter Screen**.
 * User can **select multiple filter options** dynamically (from simulated JSON API).
 
-Here’s the refined part of the README 👇 (only the **Features section**, rest stays same):
-
 ---
 
 ## 🚀 Features
@@ -93,9 +91,17 @@ lib/
 ├── main_dev.dart                 # Dev flavor
 ├── main_prod.dart                # Prod flavor
 ```
+Got it! Here’s a concise **Environment** section you can add to your README with only the essential items like Flutter version, Dart version, DevTools, and SDK:
 
 ---
 
+## 🖥️ Environment
+
+* **Flutter**: 3.35.4 
+* **Dart**: 3.9.2
+* **DevTools**: 2.48.0
+
+---
 ## ⚡ API Simulation
 
 * Static JSON files under **assets/** simulate API responses.
@@ -118,8 +124,6 @@ lib/
   * Lint checks
 
 ---
-
-Got it 👍 — here’s the corrected **README section** with the requested change:
 
 ---
 
@@ -158,12 +162,6 @@ Based on: [Figma Design](https://www.figma.com/design/7fwf4IQMfmxI4ZAvOpndCJ/Des
 
 ---
 
-## 👨‍💻 Author
 
-**Niaj Mahmud**
-Mobile App Developer – Flutter
-3+ years experience in Flutter, Kotlin, Java, MVVM, and Clean Architecture
-
----
 
 
